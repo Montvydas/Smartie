@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00FF90">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Welcome to Smartie!"
+        android:id="@+id/received_text_view"
+        android:layout_gravity="center_horizontal" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ok_google_image"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/ok_image"/>
+
+    <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="OK GOOGLE!"-->
+        <!--android:id="@+id/ok_google_button"-->
+        <!--android:layout_gravity="center_horizontal" />-->
+
+    <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="SEND STUFF!"-->
+        <!--android:id="@+id/send_data_button"-->
+        <!--android:layout_gravity="center_horizontal" />-->
+
+    <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="RECEIVE STUFF!"-->
+        <!--android:id="@+id/receive_data_button"-->
+        <!--android:layout_gravity="center_horizontal" />-->
+
+
+
+</LinearLayout><!-- From: file:/Users/montuxxx/Desktop/MyLightsProject/Bluetooth/app/src/main/res/layout/activity_send.xml -->
