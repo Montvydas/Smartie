@@ -19,27 +19,4 @@
         android:layout_gravity="center_horizontal"
         android:background="@drawable/ok_image"/>
 
-    <!--<Button-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="OK GOOGLE!"-->
-        <!--android:id="@+id/ok_google_button"-->
-        <!--android:layout_gravity="center_horizontal" />-->
-
-    <!--<Button-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="SEND STUFF!"-->
-        <!--android:id="@+id/send_data_button"-->
-        <!--android:layout_gravity="center_horizontal" />-->
-
-    <!--<Button-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="RECEIVE STUFF!"-->
-        <!--android:id="@+id/receive_data_button"-->
-        <!--android:layout_gravity="center_horizontal" />-->
-
-
-
 </LinearLayout>

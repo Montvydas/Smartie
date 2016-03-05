@@ -10,7 +10,7 @@ import java.nio.charset.Charset;
 /**
  * Created by montuxxx on 17/02/16.
  */
-public class ManageConnectedThread extends Thread {
+public class ManageConnectedThread implements Runnable {
     private final BluetoothSocket mmSocket;
     private final InputStream mmInStream;
     private final OutputStream mmOutStream;
@@ -59,7 +59,6 @@ public class ManageConnectedThread extends Thread {
     public void write(String input) {
         try {
             byte[] bytes = input.getBytes(); // converts entered String into
-
             mmOutStream.write(bytes);
         } catch (IOException e) { }
     }

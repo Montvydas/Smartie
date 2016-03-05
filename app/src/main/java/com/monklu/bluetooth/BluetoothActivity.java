@@ -1,13 +1,8 @@
 package com.monklu.bluetooth;
 
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
-import java.util.UUID;
 
-import android.app.Activity;
-import android.app.FragmentManager;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.BroadcastReceiver;
@@ -19,19 +14,13 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.Toast;
-
-import com.monklu.bluetooth.R;
 
 public class BluetoothActivity extends DrawerActivity implements AdapterView.OnItemClickListener {
 
@@ -39,12 +28,6 @@ public class BluetoothActivity extends DrawerActivity implements AdapterView.OnI
     public static Set<BluetoothDevice> pairedDevices;
 
     public static ArrayAdapter<String> btArrayAdapter;
-
-    //DO THIS ONE LATER WITH A CUSTOM ARRAY ADAPTER
-    public static ArrayAdapter<BluetoothDeviceItem> BTItemAdapter;
-
-    //public ArrayList<BluetoothDeviceItem> bluetoothItemList;
-    //public ArrayList<BluetoothDevice> bluetoothItems;
 
     private ListView listDevices;
     private boolean visible_or_paired = false;
@@ -66,29 +49,10 @@ public class BluetoothActivity extends DrawerActivity implements AdapterView.OnI
         listDevices = (ListView) findViewById(R.id.listDevices);
         listDevices.setOnItemClickListener(this);
 
-        //BTItemAdapter = new ArrayAdapter<BluetoothDeviceItem>(BluetoothActivity.this, android.R.layout.simple_list_item_1);
-        //listDevices.setAdapter(BTItemAdapter);
-
         btArrayAdapter = new ArrayAdapter<String>(BluetoothActivity.this, android.R.layout.simple_list_item_1);
         listDevices.setAdapter(btArrayAdapter);
 
         turnBluetoothPaired();
-//        Button button = (Button) findViewById(R.id.connect_button);
-//        button.setOnClickListener(new OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//				if(mDrawerLayout.isDrawerOpen(mDrawerLayout)) {
-//					mDrawerLayout.closeDrawer(mDrawerLayout);
-//				}
-//				else {
-//					mDrawerLayout.openDrawer(mDrawerLayout);
-//				}
-//
-//                //mDrawerLayout.openDrawer(Gravity.LEFT);
-//                Log.e("does", "Work");
-//            }
-//        });
     }
     private void checkAndEnableBluetooth() {
         //check if the phone has a bluetooth
@@ -206,7 +170,6 @@ public class BluetoothActivity extends DrawerActivity implements AdapterView.OnI
                 Intent intent = new Intent(BluetoothActivity.this, SendActivity.class);
                 intent.putExtra(DEVICE_ADDRESS, address);
                 startActivity(intent);
-
             }
         }
     }
