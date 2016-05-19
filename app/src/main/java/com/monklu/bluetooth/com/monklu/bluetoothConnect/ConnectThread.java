@@ -6,7 +6,6 @@ import android.bluetooth.BluetoothSocket;
 import android.util.Log;
 
 import java.io.IOException;
-import java.nio.charset.Charset;
 import java.util.UUID;
 
 /**
@@ -25,6 +24,8 @@ public class ConnectThread extends Thread {
     public ConnectThread(BluetoothDevice device, UUID MY_UUID) {
         // Use a temporary object that is later assigned to mmSocket,
         // because mmSocket is final
+        Log.e("Thread created", "one!");
+
         BluetoothSocket tmp = null;
         mmDevice = device;
 

@@ -32,6 +32,9 @@ public class VoiceMagic {
         magicList.add("get light bathroom");
         magicList.add("what light bathroom");
         magicList.add("make temperature outside");
+        magicList.add("set colour red");
+        magicList.add("set colour blue");
+        magicList.add("set colour green");
     }
 
     public String[] translateTask(String spokenText) {
@@ -73,16 +76,16 @@ public class VoiceMagic {
         //Log.e("magicResponse[0] is", "" + magicResponse[0]);
 
         //Check for number
-        if (!magicResponse[0].equalsIgnoreCase("get") && !magicResponse[0].equalsIgnoreCase("what")) {
-            for (String str : extractedWords) {
-                if (TextUtils.isDigitsOnly(str)) {
-                    magicResponse[3] = str;
-                    isFunction = true;
-                    Log.e("number is", "" + str);
-                    break;
-                } else isFunction = false;
-            }
-        }
+//        if (!magicResponse[0].equalsIgnoreCase("get") && !magicResponse[0].equalsIgnoreCase("what")) {
+//            for (String str : extractedWords) {
+//                if (TextUtils.isDigitsOnly(str)) {
+//                    magicResponse[3] = str;
+//                    isFunction = true;
+//                    Log.e("number is", "" + str);
+//                    break;
+//                } else isFunction = false;
+//            }
+//        }
 
         Log.e("after Number", "" + isFunction);
 
@@ -119,5 +122,14 @@ public class VoiceMagic {
             sendStuff = "g";
         }
         return sendStuff;
+    }
+
+    public String getColourResponse (String[] magicResponse){
+        String tmp = new String();
+
+        if (magicResponse[0].equalsIgnoreCase("set")){
+            tmp = magicResponse[0] + "ting the " + magicResponse[1] + " " + magicResponse[2];
+        }
+        return tmp;
     }
 }

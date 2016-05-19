@@ -5,10 +5,9 @@ import android.bluetooth.BluetoothSocket;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.nio.charset.Charset;
 
 /**
- * Created by montuxxx on 17/02/16.
+ * Created by Monte on 17/02/16.
  */
 public class ManageConnectedThread implements Runnable {
     private final BluetoothSocket mmSocket;

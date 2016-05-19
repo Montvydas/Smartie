@@ -73,12 +73,20 @@ public class SendActivity extends Activity implements View.OnClickListener, Text
 
             String[] MagicResponse = voiceMagic.translateTask(spokenText);
 
-            if (MagicResponse == null)
+
+            if (MagicResponse == null) {
                 speech("Sorry, can you repeat this?");
+//                sendResponse("green");
+            }
+//            else {
+//                speech(voiceMagic.getVoiceResponse(MagicResponse));
+//                sendResponse(voiceMagic.getMessageResponse(MagicResponse));
+//                receivedText.setText(voiceMagic.getMessageResponse(MagicResponse));
+//            }
             else {
-                speech(voiceMagic.getVoiceResponse(MagicResponse));
-                sendResponse(voiceMagic.getMessageResponse(MagicResponse));
-                receivedText.setText(voiceMagic.getMessageResponse(MagicResponse));
+                speech(voiceMagic.getColourResponse(MagicResponse));
+                sendResponse(MagicResponse[2]);
+                Log.e("Colour=", MagicResponse[2]);
             }
         }
         super.onActivityResult(requestCode, resultCode, data);
@@ -151,15 +159,20 @@ public class SendActivity extends Activity implements View.OnClickListener, Text
     protected void onResume() {
         super.onResume();
 
+        Log.e("activity", "started again");
         UUID deviceUUID = device.getUuids()[0].getUuid();
         Log.e("UUID", deviceUUID + "");
-        connectThread = new ConnectThread(device, deviceUUID);
-        connectThread.start();
+        if (connectThread == null) {
+            connectThread = new ConnectThread(device, deviceUUID);
+            connectThread.start();
+        }
     }
 
     @Override
     protected void onStop() {
         super.onStop();
+        Log.e("activity", "stopped");
+        mmManagegedConnection.cancel();
         connectThread.cancel();
         try {
             connectThread.join();
@@ -169,9 +182,11 @@ public class SendActivity extends Activity implements View.OnClickListener, Text
     }
 
     public void sendResponse(String sendWord) {
-        if (connectThread.getSocket() != null && connectThread.getSocket().isConnected()) {
-            mmManagegedConnection = new ManageConnectedThread(connectThread.getSocket());
-            mmManagegedConnection.write(sendWord);
+        if (connectThread.getSocket() != null && connectThread.getSocket().isConnected()) { //check if device is still connected
+            if (mmManagegedConnection == null) {
+                mmManagegedConnection = new ManageConnectedThread(connectThread.getSocket());   //get bluetooth socket
+            }
+            mmManagegedConnection.write(sendWord);                                          //send the work
         }
             //mmManagegedConnection.write(string.getBytes(Charset.forName("UTF-8")));
     }

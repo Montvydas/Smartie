@@ -2,4 +2,4 @@
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
         android:orderInCategory="100" android:showAsAction="never" />
 </menu>
-<!-- From: file:/Users/montuxxx/Desktop/MyLightsProject/Bluetooth/app/src/main/res/menu/global.xml -->
+<!-- From: file:/Users/monte/Desktop/MyLightsProject/Smartie/Smartie/app/src/main/res/menu/global.xml -->
